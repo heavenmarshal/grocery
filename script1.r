@@ -1,0 +1,16 @@
+library("data.table")
+library("zoo")
+library("RSQLite")
+source("utility.r")
+con <- dbConnect(SQLite(),dbname="sqldb/grocery.sqlite")
+stores <- fread("stores.csv/storerv.csv")
+items <- fread("items.csv/itemsrv.csv")
+hcityalt <- fread("holidays_events.csv/hcityalt.csv",header=TRUE)
+transalt <- fread("transactions.csv/transalt.csv",header=TRUE)
+itemno <- 103665
+lags <- c(1,2,3,7,14,21,28,35)
+malags <- c(2,3,7,14,21,28,35,70,140)
+pmlags <- c(14,21,28,35,70,140,210)
+dseq <- seq.Date(as.Date("2013-01-01"),as.Date("2017-08-15"),1)
+folder <- "trainitem"
+system.time(procitem(itemno,con,dseq,transalt,stores,hcityalt,lags,malags,pmlags,folder))

@@ -1,0 +1,6 @@
+Package: procgrocery
+Version: 0.1-1
+Date: 2017-12-27
+Author: Ru Zhang
+Depends: zoo, data.table
+NeedsCompilation: yes

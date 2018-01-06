@@ -1,0 +1,7 @@
+useDynLib(procgrocery)
+export(lagma,lagmax,lagsd,lagsum,periodmean,periodsd,periodapply,
+       summarytsmat,procpromotion,alignmts,alignmtshol,summarizeCate,
+       applytocate,holidaycitytable,lasttruegap,nexttruegap,proclagma,
+       procperiod,procgap,procitem)
+importFrom(zoo,rollmax)
+import(data.table)
